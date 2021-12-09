@@ -10,11 +10,13 @@ import Swal from 'sweetalert2';
 export class ArticlesComponent implements OnInit {
 
   edit = false
+  mode = 1
   oneArticle = {
     id: 0,
     title: '',
     content: '',
-    author: ''
+    author: '',
+    image: ''
   }
   listOfArticles: any[] = []
   constructor(private articleService: ActicleService) { }
@@ -37,6 +39,7 @@ export class ArticlesComponent implements OnInit {
             id: 0,
             title: '',
             content: '',
+            image: '',
             author: ''
           }
         })
@@ -91,10 +94,15 @@ export class ArticlesComponent implements OnInit {
             id: 0,
             title: '',
             content: '',
+            image: '',
             author: ''
           }
           this.edit = false
         })
+  }
+
+  layout(val: number) {
+    this.mode = val
   }
 
 }

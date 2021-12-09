@@ -8,6 +8,11 @@
                 <label for="title">Title</label>
                 <input [(ngModel)]="oneArticle.title" id="title" type="text" class="form-control">
             </div>
+
+            <div class="row">
+                <label for="image">image</label>
+                <input [(ngModel)]="oneArticle.image" id="image" type="text" class="form-control">
+            </div>
     
             <div class="row">
                 <label for="content">Content</label>
@@ -24,7 +29,14 @@
         </div>
 
 
-       <table class="table">
+        <div class="row">
+            <div class="col-md-12 text-end">
+                <button (click)="layout(1)" class="btn btn-light">List</button>
+                <button (click)="layout(2)" class="btn btn-light">Card</button>
+            </div>
+        </div>
+
+       <table class="table" *ngIf="mode == 1">
            <thead>
                <tr>
                    <th>Id</th>
@@ -38,6 +50,7 @@
                 (dblclick)="destroyArticle(article.id)"
                 *ngFor="let article of listOfArticles">
                    <td scope="row">{{ article.id}}</td>
+                   <td><img width="50px" [src]="article.image" alt=""></td>
                    <td>{{ article.title}}</td>
                    <td>{{ article.author}}</td>
                    <td class="text-end">
@@ -48,6 +61,25 @@
                
            </tbody>
        </table>
+
+
+       <div class="row" *ngIf="mode == 2">
+           <div class="col-md-3" *ngFor="let article of listOfArticles">
+               <div class="card">
+                   <img class="card-img-top" [src]="article.image" alt="">
+                   <div class="card-body">
+                       <h4 class="card-title">{{ article.title }}</h4>
+                       <div class="card-text">
+                           <p>{{ article.content }}</p>
+                            <div>
+                                <button (click)="editArticle(article)" class="btn btn-warning mr-1">edit</button>
+                                <button (click)="destroyArticle(article.id)" class="btn btn-danger">delete</button>
+                            </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
        
     </div>
 </div>
