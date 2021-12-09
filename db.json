@@ -1,0 +1,16 @@
+{
+  "articles": [
+    {
+      "title": "Learn Angular",
+      "content": "learn how to program with angulat",
+      "author": "Kadija ALAOUI",
+      "id": 1
+    },
+    {
+      "title": "Learn NestJS",
+      "content": "Learn backend with nodejs and expressjs",
+      "author": "Mohamed IDBRAHIM",
+      "id": 2
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-md-12">
+        <h1>List of Articles</h1>
+        <hr>
+
+        <div class="my-4">
+            <div class="row">
+                <label for="title">Title</label>
+                <input [(ngModel)]="oneArticle.title" id="title" type="text" class="form-control">
+            </div>
+    
+            <div class="row">
+                <label for="content">Content</label>
+                <input [(ngModel)]="oneArticle.content" id="content" type="text" class="form-control">
+            </div>
+    
+            <div class="row">
+                <label for="author">Author</label>
+                <input [(ngModel)]="oneArticle.author" id="author" type="text" class="form-control">
+            </div>
+           
+            <button *ngIf="edit" (click)="updateArticle()" class="btn btn-warning my-2">Update</button>
+            <button *ngIf="!edit" (click)="addArticle()" class="btn btn-success my-2">Add</button>
+        </div>
+
+
+       <table class="table">
+           <thead>
+               <tr>
+                   <th>Id</th>
+                   <th>Title</th>
+                   <th>Author</th>
+                   <th></th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr 
+                (dblclick)="destroyArticle(article.id)"
+                *ngFor="let article of listOfArticles">
+                   <td scope="row">{{ article.id}}</td>
+                   <td>{{ article.title}}</td>
+                   <td>{{ article.author}}</td>
+                   <td class="text-end">
+                    <button (click)="editArticle(article)" class="btn btn-warning mr-1">edit</button>
+                    <button (click)="destroyArticle(article.id)" class="btn btn-danger">delete</button>
+                   </td>
+               </tr>
+               
+           </tbody>
+       </table>
+       
+    </div>
+</div>
