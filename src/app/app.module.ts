@@ -16,10 +16,12 @@ import { ArticlesComponent } from './articles/articles.component'
 import { LayoutComponent } from './layout/layout.component';
 import { UsersComponent } from './users/users.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { AddArticleComponent } from './add-article/add-article.component';
 
 const appRoutes = [
   { path: 'home', component: LayoutComponent },
   { path: 'articles', component: ArticlesComponent },
+  { path: 'articles/add', component: AddArticleComponent },
   { path: 'users', component: UsersComponent },
   { path: 'users/:login', component: UserDetailsComponent }
 ]
@@ -37,7 +39,8 @@ const appRoutes = [
     LayoutComponent,
     ArticlesComponent,
     UsersComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    AddArticleComponent
   ],
   imports: [
     BrowserModule,

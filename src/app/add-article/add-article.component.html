@@ -1,0 +1,52 @@
+.<div class="container">
+    <div class="row my-5">
+        <div class="col-md-12">
+            
+            <a routerLink="/articles">Back to list</a>
+            <h1>New article</h1>
+
+
+            
+            <form #myForm="ngForm">
+                <div class="row">
+                    <label for="title">Title</label>
+                    <input name="title" #title="ngModel" required minlength="3" maxlength="10" pattern="[a-zA-Z0-9 ]*" [(ngModel)]="oneArticle.title" id="title" type="text" class="form-control">
+                    <div class="alert alert-danger" *ngIf="title.invalid && title.touched">
+                        <div *ngIf="title.errors?.required">This field is required !</div>
+                        <div *ngIf="title.errors?.minlength">This field should be great than 3 characters !</div>
+                        <div *ngIf="title.errors?.maxlength">This field should be less than 10 characters !</div>
+                        <div *ngIf="title.errors?.pattern">This field not respect our pattern !</div>
+            
+                    </div>
+                </div>
+            
+                <div class="row">
+                    <label for="image">image</label>
+                    <input name="image" #image="ngModel" required [(ngModel)]="oneArticle.image" id="image" type="text" class="form-control">
+                    <div class="alert alert-danger" *ngIf="image.invalid && image.touched">
+                         <div *ngIf="image.errors?.required">This field is required !</div>
+                    </div>
+                </div>
+            
+                <div class="row">
+                    <label for="content">Content</label>
+                    <input name="content" #content="ngModel" required [(ngModel)]="oneArticle.content" id="content" type="text" class="form-control">
+                    <div class="alert alert-danger" *ngIf="content.invalid && content.touched">
+                         <div *ngIf="content.errors?.required">This field is required !</div>
+                     </div>
+                </div>
+            
+                <div class="row">
+                    <label for="author">Author</label>
+                    <input name="author" [(ngModel)]="oneArticle.author" id="author" type="text" class="form-control">
+                </div>
+               
+                <div>
+                    <button  *ngIf="edit" (click)="updateArticle()" class="btn btn-warning my-2">Update</button>
+                    <button [disabled]="myForm.invalid" *ngIf="!edit" (click)="addArticle(myForm)" class="btn btn-success my-2">Add</button>
+                </div>
+              
+             </form>
+        </div>
+    </div>
+</div>

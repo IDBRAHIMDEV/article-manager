@@ -1,102 +1,66 @@
-<div class="row">
-    <div class="col-md-12">
-        <h1>List of Articles</h1>
-        <hr>
- 
-        <div class="my-4">
-   <form #myForm="ngForm">
-       <div class="row">
-           <label for="title">Title</label>
-           <input name="title" #title="ngModel" required minlength="3" maxlength="10" pattern="[a-zA-Z0-9 ]*" (change)="log(title)" [(ngModel)]="oneArticle.title" id="title" type="text" class="form-control">
-           <div class="alert alert-danger" *ngIf="title.invalid && title.touched">
-               <div *ngIf="title.errors?.required">This field is required !</div>
-               <div *ngIf="title.errors?.minlength">This field should be great than 3 characters !</div>
-               <div *ngIf="title.errors?.maxlength">This field should be less than 10 characters !</div>
-               <div *ngIf="title.errors?.pattern">This field not respect our pattern !</div>
 
-           </div>
-       </div>
+<div class="container">
 
-       <div class="row">
-           <label for="image">image</label>
-           <input name="image" #image="ngModel" required [(ngModel)]="oneArticle.image" id="image" type="text" class="form-control">
-           <div class="alert alert-danger" *ngIf="image.invalid && image.touched">
-                <div *ngIf="image.errors?.required">This field is required !</div>
-           </div>
-       </div>
-
-       <div class="row">
-           <label for="content">Content</label>
-           <input name="content" #content="ngModel" required [(ngModel)]="oneArticle.content" id="content" type="text" class="form-control">
-           <div class="alert alert-danger" *ngIf="content.invalid && content.touched">
-                <div *ngIf="content.errors?.required">This field is required !</div>
-            </div>
-       </div>
-
-       <div class="row">
-           <label for="author">Author</label>
-           <input name="author" [(ngModel)]="oneArticle.author" id="author" type="text" class="form-control">
-       </div>
-      
-       <div>
-           <button  *ngIf="edit" (click)="updateArticle()" class="btn btn-warning my-2">Update</button>
-           <button [disabled]="myForm.invalid" *ngIf="!edit" (click)="addArticle(myForm)" class="btn btn-success my-2">Add</button>
-       </div>
-       <div class="row">
-           <div class="col-md-12 text-end">
-               <button (click)="layout(1)" class="btn btn-light">List</button>
-               <button (click)="layout(2)" class="btn btn-light">Card</button>
-            </div>
+    <div class="row my-4">
+        <div class="col-md-6">
+            <h1>List of articles</h1>
         </div>
-    </form>
-</div>
-
-
-
-       <table class="table" *ngIf="mode == 1">
-           <thead>
-               <tr>
-                   <th>Id</th>
-                   <th>Title</th>
-                   <th>Author</th>
-                   <th></th>
-               </tr>
-           </thead>
-           <tbody>
-               <tr 
-                (dblclick)="destroyArticle(article.id)"
-                *ngFor="let article of listOfArticles">
-                   <td scope="row">{{ article.id}}</td>
-                   <td><img width="50px" [src]="article.image" alt=""></td>
-                   <td>{{ article.title}}</td>
-                   <td>{{ article.author}}</td>
-                   <td class="text-end">
-                    <button (click)="editArticle(article)" class="btn btn-warning mr-1">edit</button>
-                    <button (click)="destroyArticle(article.id)" class="btn btn-danger">delete</button>
-                   </td>
-               </tr>
-               
-           </tbody>
-       </table>
-
-
-       <div class="row" *ngIf="mode == 2">
-           <div class="col-md-3" *ngFor="let article of listOfArticles">
-               <div class="card">
-                   <img class="card-img-top" [src]="article.image" alt="">
-                   <div class="card-body">
-                       <h4 class="card-title">{{ article.title }}</h4>
-                       <div class="card-text">
-                           <p>{{ article.content }}</p>
-                            <div>
-                                <button (click)="editArticle(article)" class="btn btn-warning mr-1">edit</button>
-                                <button (click)="destroyArticle(article.id)" class="btn btn-danger">delete</button>
-                            </div>
+        <div class="col-md-6 text-end">
+            <a routerLink="add" class="btn btn-dark">New</a>
+        </div>
+    </div>
+    
+    
+    <div class="row">
+    
+    
+        <div class="col-md-12">
+    
+           <table class="table" *ngIf="mode == 1">
+               <thead>
+                   <tr>
+                       <th>Id</th>
+                       <th>Title</th>
+                       <th>Author</th>
+                       <th></th>
+                   </tr>
+               </thead>
+               <tbody>
+                   <tr 
+                    (dblclick)="destroyArticle(article.id)"
+                    *ngFor="let article of listOfArticles">
+                       <td scope="row">{{ article.id}}</td>
+                       <td><img width="50px" [src]="article.image" alt=""></td>
+                       <td>{{ article.title}}</td>
+                       <td>{{ article.author}}</td>
+                       <td class="text-end">
+                        <button (click)="editArticle(article)" class="btn btn-warning mr-1">edit</button>
+                        <button (click)="destroyArticle(article.id)" class="btn btn-danger">delete</button>
+                       </td>
+                   </tr>
+                   
+               </tbody>
+           </table>
+    
+    
+           <div class="row" *ngIf="mode == 2">
+               <div class="col-md-3" *ngFor="let article of listOfArticles">
+                   <div class="card">
+                       <img class="card-img-top" [src]="article.image" alt="">
+                       <div class="card-body">
+                           <h4 class="card-title">{{ article.title }}</h4>
+                           <div class="card-text">
+                               <p>{{ article.content }}</p>
+                                <div>
+                                    <button (click)="editArticle(article)" class="btn btn-warning mr-1">edit</button>
+                                    <button (click)="destroyArticle(article.id)" class="btn btn-danger">delete</button>
+                                </div>
+                           </div>
                        </div>
                    </div>
                </div>
            </div>
-       </div>
-       
+           
+        </div>
     </div>
 </div>
