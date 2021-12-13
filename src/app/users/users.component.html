@@ -1,0 +1,23 @@
+
+
+<div class="container">
+    <div class="row my-5">
+        <div class="col">
+            <h1>List of users</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3" *ngFor="let user of listUsers">
+            <div class="card my-3">
+                <img class="card-img-top" [src]="user.avatar_url" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">{{ user.login }}</h4>
+                    <p class="card-text">
+                        <a [href]="user.html_url" class="btn btn-success">Show more</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

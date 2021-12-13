@@ -11,7 +11,16 @@ import { TableComponent } from './table/table.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router'
 import { ArticlesComponent } from './articles/articles.component'
+import { LayoutComponent } from './layout/layout.component';
+import { UsersComponent } from './users/users.component';
+
+const appRoutes = [
+  { path: 'home', component: LayoutComponent },
+  { path: 'articles', component: ArticlesComponent },
+  { path: 'users', component: UsersComponent }
+]
 
 @NgModule({
   declarations: [
@@ -23,12 +32,15 @@ import { ArticlesComponent } from './articles/articles.component'
     IntroComponent,
     TableComponent,
     FooterComponent,
-    ArticlesComponent
+    LayoutComponent,
+    ArticlesComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule, 
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
