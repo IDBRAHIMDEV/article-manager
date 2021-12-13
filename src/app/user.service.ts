@@ -11,4 +11,8 @@ export class UserService {
   getUsers() {
     return this.http.get('https://api.github.com/users')
   }
+
+  getOneUser(login: string) {
+    return this.http.get(`https://api.github.com/users/${login}`)
+  }
 }

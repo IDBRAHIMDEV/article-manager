@@ -15,11 +15,13 @@ import { RouterModule } from '@angular/router'
 import { ArticlesComponent } from './articles/articles.component'
 import { LayoutComponent } from './layout/layout.component';
 import { UsersComponent } from './users/users.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 const appRoutes = [
   { path: 'home', component: LayoutComponent },
   { path: 'articles', component: ArticlesComponent },
-  { path: 'users', component: UsersComponent }
+  { path: 'users', component: UsersComponent },
+  { path: 'users/:login', component: UserDetailsComponent }
 ]
 
 @NgModule({
@@ -34,7 +36,8 @@ const appRoutes = [
     FooterComponent,
     LayoutComponent,
     ArticlesComponent,
-    UsersComponent
+    UsersComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,

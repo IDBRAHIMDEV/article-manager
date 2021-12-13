@@ -14,7 +14,7 @@
                 <div class="card-body">
                     <h4 class="card-title">{{ user.login }}</h4>
                     <p class="card-text">
-                        <a [href]="user.html_url" class="btn btn-success">Show more</a>
+                        <a [routerLink]="[user.login]" class="btn btn-success">Show more</a>
                     </p>
                 </div>
             </div>

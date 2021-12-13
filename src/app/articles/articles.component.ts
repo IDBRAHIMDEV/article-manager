@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActicleService } from '../acticle.service'
 import Swal from 'sweetalert2';
+import { Form, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-articles',
@@ -31,17 +32,20 @@ export class ArticlesComponent implements OnInit {
     })
   }
 
-  addArticle() {
-    this.articleService.createOneArticle(this.oneArticle)
+  addArticle(data: any) {
+    
+
+    if(data.invalid) {
+      alert('please check the data on the form !')
+      return
+    }
+
+    
+    this.articleService.createOneArticle(data.value)
         .subscribe(data => {
           this.listOfArticles.push(data)
-          this.oneArticle = {
-            id: 0,
-            title: '',
-            content: '',
-            image: '',
-            author: ''
-          }
+          
+          
         })
   }
 
@@ -103,6 +107,11 @@ export class ArticlesComponent implements OnInit {
 
   layout(val: number) {
     this.mode = val
+  }
+
+
+  log(title: any) {
+    console.log(title)
   }
 
 }

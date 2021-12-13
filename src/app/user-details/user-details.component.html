@@ -1,0 +1,15 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+           
+            <img [src]="user.avatar_url" class="img-fluid" alt="">
+        </div>
+        <div class="col-md-8">
+            <h1>{{ user.login }}</h1>
+            <p>
+                {{user | json}}
+            </p>
+        </div>
+    </div>
+</div>
