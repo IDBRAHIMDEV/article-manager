@@ -6,13 +6,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserService {
 
+  urlApi = 'https://api.github.com/users'
+
   constructor(private http: HttpClient) { }
 
   getUsers() {
-    return this.http.get('https://api.github.com/users')
+    return this.http.get(this.urlApi)
   }
 
   getOneUser(login: string) {
-    return this.http.get(`https://api.github.com/users/${login}`)
+    return this.http.get(`${this.urlApi}/${login}`)
   }
 }

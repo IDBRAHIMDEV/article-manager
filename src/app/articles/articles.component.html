@@ -45,7 +45,7 @@
     
            <div class="row">
                <div class="col-md-3" *ngFor="let article of listOfArticles">
-                   <div class="card">
+                   <!-- <div class="card">
                        <img class="card-img-top" [src]="article.image" alt="">
                        <div class="card-body">
                            <h4 class="card-title">{{ article.title }}</h4>
@@ -58,7 +58,17 @@
                                 </div>
                            </div>
                        </div>
-                   </div>
+                   </div> -->
+
+                   <app-card
+                     [id]="article.id"
+                     [title]="article.title"
+                     [image]="article.image"
+                     text="Voir Plus"
+
+                     (sendIdToDelete)="deleteArticle($event)"
+                   >
+                   </app-card>
                </div>
            </div>
            

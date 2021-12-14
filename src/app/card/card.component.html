@@ -5,7 +5,9 @@
     <div class="card-body">
         <h4 class="card-title">{{ title }}</h4>
         <p class="card-text">
-            <a [routerLink]="['/users', title]" class="btn btn-success">{{ text }}</a>
+            <a [routerLink]="['/users', title]" class="btn btn-success mr-2">{{ text }}</a>
+
+            <button class="btn btn-danger" (click)="sendId(id)">Delete</button>
         </p>
     </div>
 </div>

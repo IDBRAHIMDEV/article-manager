@@ -114,4 +114,9 @@ export class ArticlesComponent implements OnInit {
     console.log(title)
   }
 
+  deleteArticle(data: any) {
+
+    this.listOfArticles = this.listOfArticles.filter(article => article.id !== data.id)
+  }
+
 }
