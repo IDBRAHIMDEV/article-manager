@@ -1,0 +1,11 @@
+
+
+ <div class="card my-3">
+    <img class="card-img-top" [src]="image" alt="">
+    <div class="card-body">
+        <h4 class="card-title">{{ title }}</h4>
+        <p class="card-text">
+            <a [routerLink]="['/users', title]" class="btn btn-success">{{ text }}</a>
+        </p>
+    </div>
+</div>

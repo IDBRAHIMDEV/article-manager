@@ -1,0 +1,51 @@
+
+<div class="container">
+    <div class="row my-4">
+        <div class="col-md-6">
+            <h1>Edit article</h1>
+        </div>
+        <div class="col-md-6 text-end">
+            <a routerLink="/articles" class="btn btn-link">Back to list</a>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+           
+            <form [formGroup]="articleForm" (ngSubmit)="updateArticle()">
+                <div class="">
+                    <label for="title" class="form-label">title</label>
+                    <input formControlName="title" type="text" class="form-control" id="title">
+                    <div *ngIf="form.title.invalid && form.title.touched" class="alert alert-danger">
+                        <div *ngIf="form.title.errors?.required">
+                          This field is required !
+                        </div>
+                        <div *ngIf="form.title.errors?.minlength">
+                            This field sould be more than 3 caracters !
+                        </div>
+
+                        <div *ngIf="form.title.errors?.pattern">
+                            The field is invalid !
+                          </div>
+                   
+                    </div>
+                </div>
+                <div >
+                    <label class="form-label" for="content">content</label>
+                    <textarea formControlName="content" id="content" class="form-control" rows="3"></textarea>
+                </div>
+                <div>
+                    <label class="form-label" for="author">author</label>
+                    
+                    <select formControlName="author" class="form-control" id="author">
+                        <option [selected]="articleForm.value.author.id == author.id" [ngValue]="author" *ngFor="let author of listAuthors">{{ author.name }}</option>
+                    </select>
+                </div>
+    
+                <button class="btn btn-primary my-2">Update</button>
+            </form>
+
+        </div>
+    </div>
+</div> 

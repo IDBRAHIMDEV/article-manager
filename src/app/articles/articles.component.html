@@ -16,7 +16,7 @@
     
         <div class="col-md-12">
     
-           <table class="table" *ngIf="mode == 1">
+           <!-- <table class="table" *ngIf="mode == 1">
                <thead>
                    <tr>
                        <th>Id</th>
@@ -32,18 +32,18 @@
                        <td scope="row">{{ article.id}}</td>
                        <td><img width="50px" [src]="article.image" alt=""></td>
                        <td>{{ article.title}}</td>
-                       <td>{{ article.author}}</td>
+                       <td>{{ article.author.name}}</td>
                        <td class="text-end">
-                        <button (click)="editArticle(article)" class="btn btn-warning mr-1">edit</button>
+                        <a [routerLink]="['/articles', article.id]" class="btn btn-warning mr-1">edit</a>
                         <button (click)="destroyArticle(article.id)" class="btn btn-danger">delete</button>
                        </td>
                    </tr>
                    
                </tbody>
-           </table>
+           </table> -->
     
     
-           <div class="row" *ngIf="mode == 2">
+           <div class="row">
                <div class="col-md-3" *ngFor="let article of listOfArticles">
                    <div class="card">
                        <img class="card-img-top" [src]="article.image" alt="">
@@ -52,7 +52,8 @@
                            <div class="card-text">
                                <p>{{ article.content }}</p>
                                 <div>
-                                    <button (click)="editArticle(article)" class="btn btn-warning mr-1">edit</button>
+              
+                                    <a [routerLink]="['/articles', article.id]" class="btn btn-warning mr-1">edit</a>
                                     <button (click)="destroyArticle(article.id)" class="btn btn-danger">delete</button>
                                 </div>
                            </div>

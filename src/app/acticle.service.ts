@@ -23,4 +23,8 @@ export class ActicleService {
   updateArticle(id: number, data: any) {
     return this.http.put(`http://localhost:3000/articles/${id}`, data)
   }
+
+  getOneArticle(id: number) {
+    return this.http.get(`http://localhost:3000/articles/${id}`)
+  }
 }

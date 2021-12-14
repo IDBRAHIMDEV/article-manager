@@ -1,16 +1,21 @@
 {
+  "authors": [
+    {"id": 1, "name": "Mohamed IDBRAHIM"},
+    {"id": 2, "name": "Khadija LHMADI"},
+    {"id": 3, "name": "Khadija ALAOUI"}
+  ],
   "articles": [
     {
       "title": "Learn Angular",
       "content": "learn how to program with angulat",
-      "author": "Kadija ALAOUI",
+      "author": {"id": 3, "name": "Khadija ALAOUI"},
       "image": "https://www.filepicker.io/api/file/UsgNwSCuTyajAqOXkz9b",
       "id": 1
     },
     {
       "title": "Learn NestJS",
       "content": "Learn backend with nodejs and expressjs",
-      "author": "Mohamed IDBRAHIM",
+      "author": {"id": 1, "name": "Mohamed IDBRAHIM"},
       "image": "https://www.filepicker.io/api/file/uGzhKqFyR7GmydrwbDer",
       "id": 2
     },
@@ -18,14 +23,14 @@
       "id": 3,
       "title": "Learn Vue 3",
       "content": "Learn vue js version 3",
-      "author": "Samir ALAOUI",
+      "author": {"id": 2, "name": "Khadija LHMADI"},
       "image": "https://www.filepicker.io/api/file/pDOKQsIdTrGr83tlRgOg"
     },
     {
       "id": 4,
       "title": "Learn Node JS",
       "content": "lEARN HOW TO DEVELOP BACKEND WITH JAVASCRIPT",
-      "author": "Mohamed IDBRAHIM",
+      "author": {"id": 1, "name": "Mohamed IDBRAHIM"},
       "image": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://www.filepicker.io/api/file/yMO0mZjvTm2pwyeOQUpT"
     },
     {
@@ -33,27 +38,27 @@
       "title": "Learn CSHARP",
       "content": "Learn CSHARP Learn CSHARPLearn CSHARP",
       "image": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://www.filepicker.io/api/file/BCxxBl0JT0Ca87Z4hpNi",
-      "author": "Mohamed EL JIHAOUI"
+      "author": {"id": 4, "name": "Mohamed  EL JIHAOUI"}
     },
     {
       "id": 6,
       "title": "Learn PHP",
       "content": "Learn PHP Learn PHP Learn PHP",
       "image": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://www.filepicker.io/api/file/3qx2G451TvGZa32C7dEH",
-      "author": "Mohamed IDBRAHIM"
+      "author": {"id": 1, "name": "Mohamed IDBRAHIM"}
     },
     {
       "title": "Symfony",
       "image": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://www.filepicker.io/api/file/xhOLHK67RWFXYva2FjQs",
       "content": "Learn Symfony 3",
-      "author": "Mohamed IDBRAHIM",
+      "author": {"id": 1, "name": "Mohamed IDBRAHIM"},
       "id": 7
     },
     {
       "title": "Git github",
       "image": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://www.filepicker.io/api/file/evNSVH9RSjW0um2vBYW9",
       "content": "Learn how to versionning your code",
-      "author": "Mohamed IDBRAHIM",
+      "author": {"id": 2, "name": "Khadija LHMADI"},
       "id": 8
     }
   ]

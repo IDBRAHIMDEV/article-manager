@@ -9,15 +9,11 @@
 
     <div class="row">
         <div class="col-md-3" *ngFor="let user of listUsers">
-            <div class="card my-3">
-                <img class="card-img-top" [src]="user.avatar_url" alt="">
-                <div class="card-body">
-                    <h4 class="card-title">{{ user.login }}</h4>
-                    <p class="card-text">
-                        <a [routerLink]="[user.login]" class="btn btn-success">Show more</a>
-                    </p>
-                </div>
-            </div>
+           <app-card 
+                [image]="user.avatar_url" 
+                [title]="user.login" 
+                text="Show more">
+            </app-card>
         </div>
     </div>
 </div>
